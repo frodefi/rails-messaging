@@ -7,4 +7,4 @@ Overview of features:
 - Compose new message with: multiple receivers, multiple attachments. If this is a reply, quote the replied message.
 - Message view (1 message only, no threading gmail style), options to download attachment and delete the message.
 
-This Messaging System you find here is a standard Rails engine, but it also exists as a Refinery CMS engine, see https://github.com/frodefi/RefineryCMS-Messaging. 
+This Messaging System also exists as a Refinery CMS engine, see https://github.com/frodefi/refinerycms-messaging. 
