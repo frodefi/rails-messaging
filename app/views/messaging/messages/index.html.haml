@@ -1,0 +1,7 @@
+%h1 Messages
+%h2 Inbox
+%ul
+  - @mailbox.inbox.each do |m|
+    %li= link_to m.subject, message_path(m)
+%nav
+  = link_to "Compose message", new_message_path

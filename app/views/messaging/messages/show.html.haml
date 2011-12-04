@@ -1,0 +1,6 @@
+%ul
+  - @conversation.messages.each do |message|
+    %li
+      %h2.subject= message.subject
+      .from= message.sender
+      .body= message.body
