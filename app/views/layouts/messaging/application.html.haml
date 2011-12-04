@@ -2,15 +2,50 @@
 %html
   %head
     %title Messaging
+    %noscript
+      = stylesheet_link_tag "messaging/mobile"
+    :javascript
+      // Edit to suit your needs.
+      var ADAPT_CONFIG = {
+        path: '#{request.protocol}#{request.host}:#{request.port}',
+        dynamic: true,
+        range: [
+          '0px    to 760px  = #{asset_path('messaging/mobile.css')}',
+          '760px  to 980px  = #{asset_path('messaging/720.css')}',
+          '980px  to 1280px = #{asset_path('messaging/960.css')}',
+          '1280px to 1600px = #{asset_path('messaging/1200.css')}',
+          '1600px = #{asset_path('messaging/1560.css')}',
+        ]
+      };
     = stylesheet_link_tag "messaging/application"
+    = javascript_include_tag "messaging/adapt"
     = javascript_include_tag "messaging/application"
     = csrf_meta_tags
   %body
-    %h1 Messaging
-    #alert= alert
-    #notice= notice
-    %nav
-      = link_to "Inbox", messages_path(box: 'inbox')
-      = link_to "Sent", messages_path(box: 'sent')
-      = link_to "Trash", messages_path(box: 'trash')
-    = yield
+    #wrapper
+      %header
+        .container_12
+          %h1 Messaging
+          = link_to "Sign out", '/users/sign_out', method: :delete, class: 'sign-out'
+      #content.container_12
+        #alert= alert
+        #notice= notice
+        .grid_2
+          %nav
+            = link_to "Compose", new_message_path, class: 'compose'
+            -if @box == 'inbox'
+              = link_to "Inbox", messages_path(box: 'inbox'), class: 'selected'
+            -else
+              = link_to "Inbox", messages_path(box: 'inbox')
+            -if @box == 'sent'
+              = link_to "Sent", messages_path(box: 'sent'), class: 'selected'
+            -else
+              = link_to "Sent", messages_path(box: 'sent')
+            -if @box == 'trash'
+              = link_to "Trash", messages_path(box: 'trash'), class: 'selected'
+            -else
+              = link_to "Trash", messages_path(box: 'trash')
+        #main.grid_10
+          = yield
+    #footer
+      .container_12

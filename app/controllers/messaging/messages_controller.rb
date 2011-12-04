@@ -2,7 +2,9 @@ module Messaging
   class MessagesController < ApplicationController
     def index
       @box = params[:box] || 'inbox'
-      @mailbox = current_user.mailbox
+      @messages = current_user.mailbox.inbox if @box == 'inbox'
+      @messages = current_user.mailbox.sentbox if @box == 'sent'
+      @messages = current_user.mailbox.trash if @box == 'trash'
     end
 
     def new
@@ -18,16 +20,16 @@ module Messaging
           flash[:alert] = "You do not have permission to view that conversation."
           return redirect_to root_path
         end
-        current_user.reply_to_conversation(@conversation, @message.body)
+        receipt = current_user.reply_to_conversation(@conversation, @message.body)
       else
         unless @message.valid?
           return render :new
         end
-        current_user.send_message(@message.recipients, @message.body, @message.subject)
+        receipt = current_user.send_message(@message.recipients, @message.body, @message.subject)
       end
       flash[:notice] = "Message sent."
 
-      redirect_to root_path
+      redirect_to message_path(receipt.conversation)
     end
 
     def show

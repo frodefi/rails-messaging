@@ -1,17 +1,21 @@
 - if @box == 'inbox'
   %h2 Inbox
-  %ul
-    - @mailbox.inbox.each do |m|
-      %li= link_to "#{m.subject} (#{m.count_messages})", message_path(m), class: "#{m.is_unread?(current_user) ? 'unread' : 'read'}"
 - if @box == 'sent'
   %h2 Sent
-  %ul
-    - @mailbox.sentbox.each do |m|
-      %li= link_to m.subject, message_path(m)
 - if @box == 'trash'
   %h2 Trash
-  %ul
-    - @mailbox.trash.each do |m|
-      %li= link_to m.subject, message_path(m)
-%nav
-  = link_to "Compose message", new_message_path
+%table#box
+  %tr
+    %th
+    %th Sender
+    %th Subject
+    %th Messages
+    %th
+  - @messages.each do |m|
+    %tr
+      %td
+        %input{ type: :checkbox }
+      %td= link_to m.last_sender, message_path(m)
+      %td= link_to m.subject, message_path(m)
+      %td= link_to m.count_messages, message_path(m)
+      %td= link_to truncate(m.last_message.body), message_path(m)

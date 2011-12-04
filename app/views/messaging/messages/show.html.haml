@@ -1,11 +1,14 @@
 %h2.subject= @conversation.subject
-%ul
+%ul#conversation
   - @conversation.messages.each do |message|
     %li
-      .from= message.sender
+      .head
+        .from= message.sender
+        .date #{message.created_at.to_s(:long)}(#{time_ago_in_words(message.created_at)} ago)
       .body= message.body
-%h2 Reply
-= simple_form_for @message do |f|
-  = f.input :conversation_id, as: :hidden
-  = f.input :body, as: :text
-  = f.button :submit, 'Reply to conversation'
+#reply
+  %h3 Reply
+  = simple_form_for @message do |f|
+    = f.input :conversation_id, as: :hidden
+    = f.input_field :body, as: :text
+    = f.button :submit, 'Reply to conversation'
