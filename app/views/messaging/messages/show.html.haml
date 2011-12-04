@@ -1,6 +1,11 @@
+%h2.subject= @conversation.subject
 %ul
   - @conversation.messages.each do |message|
     %li
-      %h2.subject= message.subject
       .from= message.sender
       .body= message.body
+%h2 Reply
+= simple_form_for @message do |f|
+  = f.input :conversation_id, as: :hidden
+  = f.input :body, as: :text
+  = f.button :submit, 'Reply to conversation'
