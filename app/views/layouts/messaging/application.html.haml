@@ -9,4 +9,8 @@
     %h1 Messaging
     #alert= alert
     #notice= notice
+    %nav
+      = link_to "Inbox", messages_path(box: 'inbox')
+      = link_to "Sent", messages_path(box: 'sent')
+      = link_to "Trash", messages_path(box: 'trash')
     = yield

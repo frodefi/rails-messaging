@@ -1,6 +1,7 @@
 module Messaging
   class MessagesController < ApplicationController
     def index
+      @box = params[:box] || 'inbox'
       @mailbox = current_user.mailbox
     end
 
@@ -36,6 +37,7 @@ module Messaging
         return redirect_to root_path
       end
       @message = Message.new conversation_id: @conversation.id
+      current_user.read(@conversation)
     end
   end
 end

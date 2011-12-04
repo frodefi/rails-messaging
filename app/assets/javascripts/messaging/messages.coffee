@@ -7,7 +7,6 @@ extractLast = (term) ->
 $ ->
 
   recipients = $('#message_recipients').data('autocomplete-source')
-  console.log recipients
 
   # don't navigate away from the field on tab when selecting an item
   $('#message_recipients').bind "keydown", (event) ->
