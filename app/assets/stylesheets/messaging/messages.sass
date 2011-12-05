@@ -41,6 +41,8 @@ header
   height: 75px
   background-color: $color_a
   background-image: -webkit-linear-gradient(top, $color_c, $color_b)
+  border-bottom: 1px solid black
+  box-shadow: 0 0 7px black
 
 nav
   > a
@@ -58,6 +60,7 @@ nav
       background-color: $color_e
     &.compose
       background-color: $color_d
+      text-shadow: 0 1px 0 black
       color: white
       text-align: center
       margin-bottom: 40px
@@ -78,6 +81,7 @@ ul.ui-autocomplete
       color: #000
       display: block
       padding: 3px
+      font-size: 18px
     > a.ui-state-hover, > a.ui-state-active
       background-color: #FFFCB2
 
@@ -95,15 +99,22 @@ body > #wrapper
   min-height: 100%
 
 #content
-  overflow: auto
+  margin-top: 30px
   padding-bottom: 150px
 
 #footer
   position: relative
   margin-top: -150px
-  height: 150px
+  height: 149px
   clear: both
   background-color: #ccc
+  border-top: 1px solid $color_d
+  a
+    display: block
+    color: black
+    margin: 20px 0
+    font-weight: bold
+    text-shadow: 0 1px 0 white
 
 h2
   margin: 10px 0
@@ -129,23 +140,35 @@ h2
 #reply
   margin-top: 10px
   padding-top: 10px
-  h3
+  label
     font-size: 20px
     font-weight: bold
     margin: 20px 0
-  textarea
-    width: 100%
     display: block
-  input[type='submit']
-    background-color: $color_d
-    border: 0
-    color: white
-    padding: 7px
-    font-size: 18px
-    cursor: pointer
-    margin: 20px 0
+
+textarea, input[type='text']
+  border: 1px solid black
+  font-size: 16px
+  font-family: $font_a
+
+textarea
+  width: 100%
+  display: block
+  font-family: $font_b
+
+.button, input[type='submit']
+  background-color: $color_d
+  border: 0
+  color: white
+  padding: 7px 20px
+  font-size: 18px
+  cursor: pointer
+  margin: 20px 0
+  text-shadow: 0 1px 0 black
+  font-weight: bold
 
 #conversation
+  margin-top: 27px
   li
     border-bottom: 1px dotted black
     margin: 10px 0
@@ -164,3 +187,31 @@ h2
     .body
       clear: both
       padding: 20px 0
+      line-height: 1.4
+
+#compose
+  margin: 55px 0
+  label
+    font-size: 20px
+    font-weight: bold
+    margin: 20px 0 5px
+    display: block
+
+#alert, #notice
+  box-shadow: 0 0 7px black
+  border-bottom: 1px solid black
+  font-weight: bold
+  text-align: center
+  padding: 10px
+#alert
+  background-color: $color_d
+  color: white
+#notice
+  background-color: $color_e
+
+#actions
+  a
+    display: block
+    float: right
+  a:hover
+    color: white

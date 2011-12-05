@@ -25,11 +25,18 @@
     #wrapper
       %header
         .container_12
-          %h1 Messaging
-          = link_to "Sign out", '/users/sign_out', method: :delete, class: 'sign-out'
+          .grid_12
+            %h1 Messaging
+            = link_to "Sign out", '/users/sign_out', method: :delete, class: 'sign-out'
+      - if notice
+        #notice
+          .container_12
+            .grid_12= notice
+      - if alert
+        #alert
+          .container_12
+            .grid_12= alert
       #content.container_12
-        #alert= alert
-        #notice= notice
         .grid_2
           %nav
             = link_to "Compose", new_message_path, class: 'compose'
@@ -49,3 +56,5 @@
           = yield
     #footer
       .container_12
+        .grid_12
+          =link_to "Rails Messaging", "http://github.com/frodefi/rails-messaging/"

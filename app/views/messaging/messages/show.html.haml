@@ -1,14 +1,19 @@
+#actions
+  - if @conversation.is_trashed?(current_user)
+    = link_to "Untrash", untrash_message_path(@conversation), class: :button, method: :post
+  - else
+    = link_to "Trash", trash_message_path(@conversation), class: :button, method: :delete
 %h2.subject= @conversation.subject
 %ul#conversation
   - @conversation.messages.each do |message|
     %li
       .head
         .from= message.sender
-        .date #{message.created_at.to_s(:long)}(#{time_ago_in_words(message.created_at)} ago)
+        .date #{message.created_at.to_s(:long)} (#{time_ago_in_words(message.created_at)} ago)
       .body= message.body
 #reply
-  %h3 Reply
   = simple_form_for @message do |f|
     = f.input :conversation_id, as: :hidden
-    = f.input_field :body, as: :text
+    = f.label :body, label: 'Reply', required: false
+    = f.input_field :body, as: :text, label: 'Reply'
     = f.button :submit, 'Reply to conversation'

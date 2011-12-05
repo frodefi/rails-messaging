@@ -16,7 +16,6 @@ $ ->
       source: (request, response) ->
         # delegate back to autocomplete, but extract the last term
         recipients = $('#message_recipients').data('autocomplete-source')
-        console.log recipients
         response $.ui.autocomplete.filter(recipients, extractLast(request.term))
       focus: -> return false # prevent last value inserted on focus
       select: (event, ui) ->
@@ -29,3 +28,6 @@ $ ->
         terms.push ""
         @value = terms.join ", "
         return false
+
+  $('#delete_multiple_button').hide()
+  $('.delete_multiple_checkbox').click -> $('#delete_multiple_button').fadeIn()

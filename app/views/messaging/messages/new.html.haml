@@ -1,5 +1,10 @@
-= simple_form_for @message do |f|
-  = f.input :recipients, input_html: { data: { autocomplete_source: User.all.map(&:name) } }
-  = f.input :subject
-  = f.input :body, as: :text
-  = f.button :submit, 'Send message'
+%h2 Compose
+#compose
+  = simple_form_for @message do |f|
+    = f.label :recipients, required: false
+    = f.input_field :recipients, data: { autocomplete_source: User.all.map(&:name) }
+    = f.label :subject, required: false
+    = f.input_field :subject
+    = f.label :body, required: false
+    = f.input_field :body, as: :text
+    = f.button :submit, 'Send message'
