@@ -11,9 +11,13 @@
         .from= message.sender
         .date #{message.created_at.to_s(:long)} (#{time_ago_in_words(message.created_at)} ago)
       .body= message.body
+      - if message.attachment.url
+        .attachment
+          = link_to message.attachment_identifier, message.attachment.url
 #reply
   = simple_form_for @message do |f|
     = f.input :conversation_id, as: :hidden
     = f.label :body, label: 'Reply', required: false
     = f.input_field :body, as: :text, label: 'Reply'
+    = f.input :attachment, as: :file
     = f.button :submit, 'Reply to conversation'

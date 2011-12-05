@@ -45,14 +45,14 @@ header
   box-shadow: 0 0 7px black
 
 nav
+  margin: 9px 0
   > a
     display: block
-    margin: 9px 0 10px 0
+    margin: 1px 0
     text-align: left
     padding: 10px
     vertical-align: middle
     display: block
-    padding: 10px
     font-weight: bold
     &:hover
       background-color: #eee
@@ -188,6 +188,10 @@ textarea
       clear: both
       padding: 20px 0
       line-height: 1.4
+    .attachment
+      margin: 10px 0
+    .attachment:before
+      content: 'Attachment: '
 
 #compose
   margin: 55px 0

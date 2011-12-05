@@ -4,7 +4,7 @@ module Messaging
     include ActiveModel::Conversion
     extend ActiveModel::Naming
 
-    attr_accessor :recipients, :subject, :body, :conversation_id
+    attr_accessor :recipients, :subject, :body, :conversation_id, :attachment
 
     validates :recipients, presence: true
     validates :subject, presence: true

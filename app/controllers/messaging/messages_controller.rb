@@ -20,12 +20,12 @@ module Messaging
           flash[:alert] = "You do not have permission to view that conversation."
           return redirect_to root_path
         end
-        receipt = current_user.reply_to_conversation(@conversation, @message.body)
+        receipt = current_user.reply_to_conversation(@conversation, @message.body, nil, true, true, @message.attachment)
       else
         unless @message.valid?
           return render :new
         end
-        receipt = current_user.send_message(@message.recipients, @message.body, @message.subject)
+        receipt = current_user.send_message(@message.recipients, @message.body, @message.subject, true, @message.attachment)
       end
       flash[:notice] = "Message sent."
 
