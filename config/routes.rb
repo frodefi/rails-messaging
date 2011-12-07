@@ -8,5 +8,6 @@ Messaging::Engine.routes.draw do
       delete 'trash'
     end
   end
+  post 'search' => 'messages#search'
   root to: 'messages#index'
 end

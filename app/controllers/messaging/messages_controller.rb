@@ -61,5 +61,11 @@ module Messaging
       flash[:notice] = "Message untrashed."
       redirect_to messages_path(box: 'inbox')
     end
+
+    def search
+      @search = params[:search]
+      @messages = current_user.search_messages(@search)
+      render :index
+    end
   end
 end

@@ -10,7 +10,9 @@ gem 'carrierwave'
 gem "jquery-rails"
 gem 'coffee-rails'
 gem 'sass-rails'
+gem 'sunspot_rails'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'sunspot_solr'
 end

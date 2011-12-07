@@ -35,3 +35,18 @@ Start the server!
 ````
 $ rails server
 ````
+
+Enabling Search
+===============
+
+To enable search, install the config file
+
+````
+$ rails g sunspot_rails:install
+````
+
+Run the development solr server
+
+````
+$ rake sunspot:solr:start
+````

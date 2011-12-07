@@ -1,3 +1,5 @@
+- if @search
+  %h2 Search results for '#{@search}'
 - if @box == 'inbox'
   %h2 Inbox
 - if @box == 'sent'
@@ -15,7 +17,7 @@
       %th Messages
       %th
     - @messages.each do |m|
-      %tr
+      %tr{ class: "#{ 'unread' if m.is_unread?(current_user) }" }
         - unless @box == 'trash'
           %td= check_box_tag '', m.id, false, class: 'delete_multiple_checkbox', name: "conversations[]"
         %td= link_to m.last_sender, message_path(m)

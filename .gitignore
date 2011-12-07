@@ -3,6 +3,8 @@ log/*.log
 pkg/
 test/dummy/db/*.sqlite3
 test/dummy/log/*.log
+test/dummy/log/*.lck
+test/dummy/solr
 test/dummy/public/uploads
 test/dummy/tmp/
 .sass-cache

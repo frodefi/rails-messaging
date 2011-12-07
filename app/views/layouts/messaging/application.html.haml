@@ -52,6 +52,8 @@
               = link_to "Trash", messages_path(box: 'trash'), class: 'selected'
             -else
               = link_to "Trash", messages_path(box: 'trash')
+            = form_tag search_path do
+              %input{ type: 'search', placeholder: 'Search', name: 'search' }
         #main.grid_10
           = yield
     #footer
