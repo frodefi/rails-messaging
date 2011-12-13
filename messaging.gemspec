@@ -7,8 +7,8 @@ require "messaging/version"
 Gem::Specification.new do |s|
   s.name        = "messaging"
   s.version     = Messaging::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = ["Jeff Dickey", "Frode Fikke"]
+  s.email       = ["me@jeffdickey.info", "frodefi@gmail.com"]
   s.homepage    = "TODO"
   s.summary     = "TODO: Summary of Messaging."
   s.description = "TODO: Description of Messaging."
