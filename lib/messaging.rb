@@ -1,5 +1,4 @@
 require "messaging/engine"
-require 'mailboxer'
 require 'devise'
 require 'haml'
 require 'carrierwave'
