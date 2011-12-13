@@ -1,4 +1,5 @@
 require "messaging/engine"
+require 'devise'
 require 'haml'
 require 'carrierwave'
 require 'sunspot_rails'
