@@ -1,5 +1,5 @@
 #actions
-  - if @conversation.is_trashed?(current_user)
+  - if @conversation.is_trashed?(current_messaging_user)
     = link_to "Untrash", untrash_message_path(@conversation), class: :button, method: :post
   - else
     = link_to "Trash", trash_message_path(@conversation), class: :button, method: :delete

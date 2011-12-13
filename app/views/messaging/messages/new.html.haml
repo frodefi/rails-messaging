@@ -2,7 +2,7 @@
 #compose
   = simple_form_for @message do |f|
     = f.label :recipients, required: false
-    = f.input_field :recipients, data: { autocomplete_source: User.all.map(&:name) }
+    = f.input_field :recipients, data: { autocomplete_source: MessagingUser.all.map(&:name) }
     = f.label :subject, required: false
     = f.input_field :subject
     = f.label :body, required: false

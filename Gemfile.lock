@@ -12,7 +12,13 @@ PATH
   remote: .
   specs:
     messaging (0.0.1)
+      carrierwave
+      devise
+      haml
+      jquery-rails
       rails (~> 3.1.3)
+      simple_form
+      sunspot_rails
 
 GEM
   remote: http://rubygems.org/

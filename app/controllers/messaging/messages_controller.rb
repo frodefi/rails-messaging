@@ -1,5 +1,5 @@
 module Messaging
-  class MessagesController < ApplicationController
+  class MessagesController < Messaging::ApplicationController
     def index
       @box = params[:box] || 'inbox'
       @messages = current_user.mailbox.inbox if @box == 'inbox'
