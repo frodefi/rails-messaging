@@ -9,32 +9,39 @@ Overview of features:
 
 This Messaging System also exists as a Refinery CMS engine, see https://github.com/frodefi/refinerycms-messaging.
 
-Running the demo app
-====================
+Installing the gem
+==================
 
-To run the demo app, first clone the repo
+Include gems and run the bundle command
 
-````
-$ git clone git@github.com:frodefi/rails-messaging.git
-````
-
-Install gems from project root
-
-````
-bundle
+````ruby
+# Gemfile
+gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
+gem 'mailboxer', git: 'git://github.com/dickeytk/mailboxer.git'
 ````
 
-From the dummy app (./test/dummy), create the database
+Install messaging
+
+````
+$ rails generate messaging:install
+````
+
+*Overwrite model file when asked*
+
+Run migrations
 
 ````
 $ rake db:migrate
 ````
 
-Start the server!
+Set the default host and set a root route (required for Devise)
 
+````ruby
+# config/environments/development.rb
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 ````
-$ rails server
-````
+
+These steps will work for RefineryCMS 2.0 or for standard Rails applications.
 
 Enabling Search
 ===============
@@ -45,8 +52,22 @@ To enable search, install the config file
 $ rails g sunspot_rails:install
 ````
 
-Run the development solr server
+Install the development solr server
+
+````ruby
+# Gemfile
+gem 'sunspot_solr'
+````
+
+Start the development solr server
 
 ````
-$ rake sunspot:solr:start
+$ rake sunspot:solr:run
+````
+
+Enable search in mailboxer
+
+````ruby
+# config/initializers/mailboxer.rb
+config.search_enabled = true
 ````
