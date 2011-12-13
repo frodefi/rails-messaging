@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Messaging::VERSION
   s.authors     = ["Jeff Dickey", "Frode Fikke"]
   s.email       = ["me@jeffdickey.info", "frodefi@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Messaging."
-  s.description = "TODO: Description of Messaging."
+  s.homepage    = "http://github.com/frodefi/rails-messaging"
+  s.summary     = "Messenging gem for rails app"
+  s.description = "Messaging allows you to put have messaigng support in a rails or refinery application."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile"]
   s.test_files = Dir["test/**/*"]
