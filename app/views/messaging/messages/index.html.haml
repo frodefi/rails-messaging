@@ -17,7 +17,7 @@
       %th Messages
       %th
     - @messages.each do |m|
-      %tr{ class: "#{ 'unread' if m.is_unread?(current_user) }" }
+      %tr{ class: "#{ 'unread' if m.is_unread?(current_messaging_user) }" }
         - unless @box == 'trash'
           %td= check_box_tag '', m.id, false, class: 'delete_multiple_checkbox', name: "conversations[]"
         %td= link_to m.last_sender, message_path(m)
