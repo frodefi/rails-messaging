@@ -6,7 +6,7 @@ class MessagingUser < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-
+  include Mailboxer::Models::Messageable
   acts_as_messageable
 
   def name
