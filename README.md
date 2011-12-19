@@ -1,10 +1,17 @@
+Rails Messaging
+===============
 Simple User Messaging System UI using the Mailboxer plugin (https://github.com/ging/mailboxer).
 
 Overview of features:
+
 - To send messages internally between users only, in email style
+
 - Folders: Inbox, Sent, Drafts, Trash. List showing vital info and each is sortable. Checkbox to do delete multiple emails.
+
 - General email search
+
 - Compose new message with: multiple receivers, multiple attachments. If this is a reply, quote the replied message.
+
 - Message view (1 message only, no threading gmail style), options to download attachment and delete the message.
 
 This Messaging System also exists as a Refinery CMS engine
@@ -147,3 +154,10 @@ Enable search in mailboxer
 # config/initializers/mailboxer.rb
 config.search_enabled = true
 ````
+
+Contributors
+===============
+
+Frode Fikke
+Jeff Dickey
+Yen Ha-Thi-Bach
