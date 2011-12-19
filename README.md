@@ -54,6 +54,8 @@ These steps will work for standard Rails applications.
 Make the rails-messaging work for RefineryCMS 2.0
 ===============
 
+If you are using refinerycms edge (http://refinerycms.com/edge-guides/) and you want integrate the this gem to your system. Please do the following step:
+
 Remove this line from /config/routes.rb
 
 ````ruby
@@ -169,6 +171,8 @@ Contributors
 Sponsored by Frode Fikke
 
 Developed by Jeff Dickey
+
+Document updated by Yen Ha-Thi-Bach
 
 Copyright
 ===============
