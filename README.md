@@ -10,11 +10,10 @@ Overview of features:
 
 - General email search
 
-- Compose new message with: multiple receivers, multiple attachments. If this is a reply, quote the replied message.
+- Compose new message with: multiple receivers. If this is a reply, quote the replied message.
 
-- Message view (1 message only, no threading gmail style), options to download attachment and delete the message.
+- Message view, options to download attachment and delete the message.
 
-This Messaging System also exists as a Refinery CMS engine
 
 Installing the gem
 ==================
@@ -172,7 +171,7 @@ Sponsored by Frode Fikke
 
 Developed by Jeff Dickey
 
-Document updated by Yen Ha-Thi-Bach
+Document is updated by Yen Ha-Thi-Bach
 
 Copyright
 ===============
