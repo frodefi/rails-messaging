@@ -165,14 +165,14 @@ And then create app/views/layout/messaging/application.html.haml file with the b
 :javascript
   // Edit to suit your needs.
   var ADAPT_CONFIG = {
-    path: ' request.protocol  request.host : request.port ',
+    path: '#{request.protocol}#{request.host}:#{request.port}',
     dynamic: true,
     range: [
-      '0px    to 760px  =  asset_path('messaging/mobile.css') ',
-      '760px  to 980px  =  asset_path('messaging/720.css') ',
-      '980px  to 1280px =  asset_path('messaging/960.css') ',
-      '1280px to 1600px =  asset_path('messaging/1200.css') ',
-      '1600px =  asset_path('messaging/1560.css') ',
+      '0px    to 760px  = #{asset_path('messaging/mobile.css')}',
+      '760px  to 980px  = #{asset_path('messaging/720.css')}',
+      '980px  to 1280px = #{asset_path('messaging/960.css')}',
+      '1280px to 1600px = #{asset_path('messaging/1200.css')}',
+      '1600px = #{asset_path('messaging/1560.css')}',
     ]
   };
 = javascript_include_tag "messaging/adapt"
