@@ -127,6 +127,89 @@ Messaging::ApplicationController.class_eval do
 end
 ````
 
+If you want to use refinery's layout, you can add the following line to app/decorators/controllers/messaging/application_controller_decorator.rb
+
+````ruby
+  layout "application"
+  include Refinery::AuthenticatedSystem
+  include Refinery::ApplicationController::InstanceMethods
+  include Refinery::Pages::InstanceMethods
+  helper_method :home_page?,
+                :local_request?,
+                :just_installed?,
+                :from_dialog?,
+                :admin?,
+                :login?
+  before_filter  :find_pages_for_menu, :show_welcome_page?
+````
+
+And then create app/helpers/messaging/application_helper.rb, with the below content:
+
+````ruby
+module Messaging
+  module ApplicationHelper
+    include Refinery::SiteBarHelper
+    include Refinery::MenuHelper
+    include Refinery::MetaHelper
+  end
+end
+````
+
+And then create app/views/layout/messaging/application.html.haml file with the below content
+
+````ruby
+!!!
+= render :partial => '/refinery/html_tag'
+- site_bar = render(:partial => '/refinery/site_bar', :locals => {:head => true})
+= render :partial => '/refinery/head'
+:javascript
+      // Edit to suit your needs.
+    var ADAPT_CONFIG = {
+      path: ' request.protocol  request.host : request.port ',
+      dynamic: true,
+      range: [
+        '0px    to 760px  =  asset_path('messaging/mobile.css') ',
+        '760px  to 980px  =  asset_path('messaging/720.css') ',
+        '980px  to 1280px =  asset_path('messaging/960.css') ',
+        '1280px to 1600px =  asset_path('messaging/1200.css') ',
+        '1600px =  asset_path('messaging/1560.css') ',
+      ]
+    };
+  = javascript_include_tag "messaging/adapt"
+= javascript_include_tag "messaging/application"
+%body
+    = render :partial => '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/
+    #page_container.container.row
+      %header#header
+        = render :partial => '/refinery/header'
+      %section#page
+        %section#body_content
+          %h1#body_content_title Messages
+          %section#body_content_left
+            .inner
+              = link_to "Compose", new_message_path, :class => 'compose'
+              - if @box == 'inbox'
+                = link_to "Inbox", messages_path(:box => 'inbox'), :class => 'selected'
+              - else
+                = link_to "Inbox", messages_path(:box => 'inbox')
+              - if @box == 'sent'
+                = link_to "Sent", messages_path(:box => 'sent'), :class => 'selected'
+              - else
+                = link_to "Sent", messages_path(:box => 'sent')
+              - if @box == 'trash'
+                = link_to "Trash", messages_path(:box => 'trash'), :class => 'selected'
+              - else
+                = link_to "Trash", messages_path(:box => 'trash')
+              = form_tag search_path do
+                %input{:name => "Search", :placehoder => "Search", :type => "search"}/
+          %section#body_content_right
+            .inner
+              = yield
+      %footer
+        = render :partial => '/refinery/footer'
+    = render :partial => '/refinery/javascripts'
+````
+
 Enabling Search
 ===============
 
