@@ -127,7 +127,7 @@ Messaging::ApplicationController.class_eval do
 end
 ````
 
-If you want to use refinery's layout, you can add the following line to app/decorators/controllers/messaging/application_controller_decorator.rb
+If you want to use refinery's layout, you can add the following lines to app/decorators/controllers/messaging/application_controller_decorator.rb
 
 ````ruby
   layout "application"
