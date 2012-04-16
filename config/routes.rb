@@ -9,5 +9,5 @@ Messaging::Engine.routes.draw do
     end
   end
   post 'search' => 'messages#search'
-  root to: 'messages#index'
+  root :to => 'messages#index'
 end
