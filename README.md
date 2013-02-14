@@ -23,7 +23,7 @@ Include gems and run the bundle command
 ````ruby
 # Gemfile
 gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
-gem 'mailboxer', git: 'git://github.com/dickeytk/mailboxer.git'
+gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
 ````
 
 Install messaging
