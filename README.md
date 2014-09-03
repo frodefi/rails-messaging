@@ -2,6 +2,8 @@ Rails Messaging
 ===============
 Simple User Messaging System UI using the Mailboxer plugin (https://github.com/ging/mailboxer).
 
+This gem is not maintained. If you want to take it over, please let me know...
+
 Overview of features:
 
 - To send messages internally between users only, in email style
