@@ -50,7 +50,7 @@ Set the default host and set a root route (required for Devise)
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 ````
 
-These steps will work for standard Rails applications.
+These steps will work for standard Rails applications. You can access the messaging portion of the site at http://127.0.0.1:3000/messages
 
 Make the rails-messaging work for RefineryCMS 2.0
 ===============
